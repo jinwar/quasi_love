@@ -1,6 +1,6 @@
 function outdata = gather_data(eventcs,center_la,center_lo,invest_range,ip)
 
-	isfigure = 1;
+	isfigure = 0;
 	% find the station in the range
 	dists = distance(eventcs.stlas,eventcs.stlos,center_la,center_lo);
 	dists = deg2km(dists);
@@ -68,6 +68,7 @@ function outdata = gather_data(eventcs,center_la,center_lo,invest_range,ip)
 	plot(center_la,center_lo,'rv');
 	caxis(crange);
 	colorbar
+	title(['Station Amplitude:',eventcs.id]);
 	subplot(1,2,2)
 	hold on
 	crange = [min(sta_dts) max(sta_dts)];
@@ -82,5 +83,6 @@ function outdata = gather_data(eventcs,center_la,center_lo,invest_range,ip)
 	plot(center_la,center_lo,'rv');
 	caxis(crange);
 	colorbar
+	title(['Station Phase Delay (s):',eventcs.id]);
 	end
 
